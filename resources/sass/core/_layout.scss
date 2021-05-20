@@ -1,0 +1,469 @@
+// IE10&11 Flexbox fix
+@media all and (-ms-high-contrast:none) {
+  html {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// app-dashboard and app-root are Angular2+ selectors. You can add here your own selectors if you need.
+.app,
+app-dashboard,
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  flex: 0 0 $navbar-height;
+}
+
+.app-footer {
+  flex: 0 0 $footer-height;
+}
+
+.app-body {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow-x: hidden;
+
+  .main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar {
+    // $sidebar-width is the width of the columns
+    flex: 0 0 $sidebar-width;
+    // put the nav on the left
+    order: -1;
+  }
+
+  .aside-menu {
+    // $aside-menu-width is the width of the columns
+    flex: 0 0 $aside-menu-width;
+  }
+}
+
+//
+// header
+//
+.header-fixed {
+  .app-header.navbar {
+    position: fixed;
+    z-index: $zindex-sticky;
+    width: 100%;
+  }
+  .app-body {
+    margin-top: $navbar-height;
+  }
+}
+
+//
+// Sidebar
+//
+.sidebar-hidden {
+  .sidebar {
+    margin-left: - $sidebar-width;
+  }
+}
+
+.sidebar-fixed {
+  .sidebar {
+    position: fixed;
+    z-index: $zindex-sticky - 1;
+    width: $sidebar-width;
+    height: 100vh;
+    // margin-top: - $navbar-height;
+
+    // .sidebar-nav {
+    //   height: calc(100vh - #{$navbar-height});
+    // }
+  }
+
+  .main, .app-footer, .app-header {
+    margin-left: $sidebar-width;
+  }
+
+  &.sidebar-hidden {
+    .main, .app-footer {
+      margin-left: 0;
+    }
+  }
+}
+
+.sidebar-fixed {
+  &.sidebar-hidden {
+    .app-header.navbar {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+}
+
+.sidebar-off-canvas {
+  .sidebar {
+    position: fixed;
+    z-index: $zindex-sticky - 1;
+    height: calc(100vh - #{$navbar-height});
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .sidebar-compact {
+    .sidebar {
+      flex: 0 0 $sidebar-compact-width;
+    }
+
+    &.sidebar-hidden {
+      .sidebar {
+        margin-left: - $sidebar-compact-width;
+      }
+    }
+
+    &.sidebar-fixed {
+      .main, .app-footer {
+        margin-left: $sidebar-compact-width;
+      }
+
+      .sidebar {
+        width: $sidebar-compact-width;
+      }
+
+      &.sidebar-hidden {
+        .main, .app-footer {
+          margin-left: 0;
+        }
+        .app-header.navbar {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    &.sidebar-fixed {
+      .app-header.navbar {
+        margin-left: $sidebar-compact-width;
+        width: calc(100% - $sidebar-compact-width);
+      }
+
+    }
+
+    .sidebar-minimizer {
+      display: none;
+    }
+  }
+
+  .sidebar-minimized {
+    .sidebar {
+      flex: 0 0 $sidebar-minimized-width;
+    }
+
+    &.sidebar-hidden {
+      .sidebar {
+        margin-left: - $sidebar-minimized-width;
+      }
+    }
+
+    &.sidebar-fixed {
+      .main, .app-footer {
+        margin-left: $sidebar-minimized-width;
+      }
+      .app-header.navbar {
+        margin-left: $sidebar-minimized-width;
+        width: calc(100% - $sidebar-minimized-width);
+      }
+      .sidebar {
+        width: $sidebar-minimized-width;
+      }
+
+      &.sidebar-hidden {
+        .main, .app-footer {
+          margin-left: 0;
+        }
+        .app-header.navbar {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+//
+// Aside Menu
+//
+.aside-menu-hidden {
+  .aside-menu {
+    margin-right: - $aside-menu-width;
+  }
+}
+
+.aside-menu-fixed {
+  .aside-menu {
+    position: fixed;
+    right: 0;
+    height: 100%;
+
+    .tab-content {
+      height: calc(100vh - #{$aside-menu-nav-padding-y * 2 + $font-size-base} - #{$navbar-height});
+    }
+  }
+
+  .main, .app-footer {
+    margin-right: $aside-menu-width;
+  }
+
+  .app-header.navbar {
+    margin-right: $aside-menu-width;
+    width: calc(100% - $aside-menu-width);
+  }
+
+  &.aside-menu-hidden {
+    .main, .app-footer {
+      margin-right: 0;
+    }
+    .app-header.navbar {
+      margin-right: 0;
+      width: calc(100% - 200px);
+    }
+  }
+}
+
+.aside-menu-off-canvas {
+  .aside-menu {
+    position: fixed;
+    right: 0;
+    z-index: $zindex-sticky - 1;
+    height: 100%;
+
+    .tab-content {
+      height: calc(100vh - #{$aside-menu-nav-padding-y * 2 + $font-size-base} - #{$navbar-height});
+    }
+  }
+}
+
+//
+// Breadcrumb
+//
+.breadcrumb-fixed {
+  .main {
+    $breadcrumb-height: 2 * $breadcrumb-padding-y + $font-size-base + 1.5 * $spacer;
+    padding-top: $breadcrumb-height;
+  }
+
+  .breadcrumb {
+    position: fixed;
+    top: $navbar-height;
+    right: 0;
+    left: 0;
+    z-index: $zindex-sticky - 2;
+  }
+
+  // if sidebar + main + aside
+  .main:nth-child(2) {
+    .breadcrumb {
+      right: $aside-menu-width;
+      left: $sidebar-width;
+    }
+  }
+
+  // if sidebar + main
+  .main:first-child {
+    .breadcrumb {
+      right: $aside-menu-width;
+      left: 0;
+    }
+  }
+
+  // if  main + aside
+  .main:last-child {
+    .breadcrumb {
+      right: 0;
+    }
+  }
+
+  &.sidebar-minimized {
+    .main .breadcrumb {
+      left: $sidebar-minimized-width;
+    }
+  }
+
+  &.sidebar-hidden, &.sidebar-off-canvas {
+    .main .breadcrumb {
+      left: 0;
+    }
+  }
+
+  &.aside-menu-hidden, &.aside-menu-off-canvas {
+    .main .breadcrumb {
+      right: 0;
+    }
+  }
+}
+//
+// Footer
+//
+.footer-fixed {
+  .app-footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-sticky;
+    height: $footer-height;
+  }
+
+  .app-body {
+    margin-bottom: $footer-height;
+  }
+}
+//
+// Animations
+//
+.app-header,
+.app-footer,
+.sidebar,
+.main,
+.aside-menu {
+  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
+}
+.sidebar-nav {
+  transition: width $layout-transition-speed;
+}
+.breadcrumb {
+  transition: left $layout-transition-speed, right $layout-transition-speed, width $layout-transition-speed;
+}
+//
+// Mobile layout
+//
+@include media-breakpoint-down(md) {
+  .app-header.navbar {
+    position: fixed !important;
+    z-index: $zindex-sticky;
+    width: 100%;
+    text-align: center;
+    background-color: $navbar-brand-bg;
+    @include borders($navbar-brand-border);
+
+    .navbar-toggler {
+      @if (lightness( $navbar-brand-bg ) > 40) {
+        color: $navbar-color;
+      } @else {
+        color: #fff;
+      }
+    }
+
+    .navbar-brand {
+      position: absolute;
+      left: 50%;
+      margin-left: - ($navbar-brand-width / 2);
+    }
+  }
+  .aside-menu-fixed {
+    &.aside-menu-hidden {
+      .app-header.navbar {
+        margin-right: 0;
+        width: 100%;
+    }
+    }
+  }
+  .app-body {
+    margin-top: $navbar-height;
+  }
+
+  .breadcrumb-fixed {
+    .main:nth-child(2) .breadcrumb {
+      right: auto;
+      left: auto;
+      width: 100%;
+    }
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: $zindex-sticky - 1;
+    width: $mobile-sidebar-width;
+    height: calc(100vh - #{$navbar-height});
+    margin-left: - $mobile-sidebar-width;
+    .sidebar-nav,
+    .nav {
+      width: $mobile-sidebar-width;
+      min-height: 0;
+    }
+
+    .sidebar-minimizer {
+      display: none;
+    }
+  }
+
+  .main, .app-footer, .app-header {
+    margin-left: 0 !important;
+  }
+
+  .sidebar-hidden {
+    .sidebar {
+      margin-left: - $mobile-sidebar-width;
+    }
+  }
+
+  .sidebar-mobile-show {
+    .sidebar {
+      width: $mobile-sidebar-width;
+      margin-left: 0;
+    }
+  }
+}
+.flex-buscador {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  border: solid 1px #c8ced2 !important;
+  margin: auto;
+}
+
+.producto-stock-elim-agre {
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 9px;
+  border: solid 1px #c3c2c2;
+  background-color: #f5f8f9;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+div#carouselPromociones .carousel-item img {
+  width: 100%;
+}
+
+.login_box {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: initial;
+  flex-direction: row;
+  height: auto !important;
+}
+
+.box-form-left {
+  width: 100%;
+  border: solid 1px #cdcdcd;
+  margin-right: 0.5rem;
+}
+
+.box-form-rigth .login_form {
+  height: 50%;
+}
+
+.box-form-rigth .logo-marca {
+  height: 50%;
+}
+
+.box-form-rigth {
+  width: 100%;
+}
+

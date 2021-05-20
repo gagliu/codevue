@@ -1,0 +1,143 @@
+// String Replace
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+// Font Face
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_')
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + '.' + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+// Border Top
+@mixin border-top($height, $style, $color) {
+  border-top: $height $style $color;
+}
+
+// Border Bottom
+@mixin border-bottom($height, $style, $color) {
+  border-bottom: $height $style $color;
+}
+
+// Font
+@mixin font($family, $size, $weight, $style, $stretch) {
+  font: {
+    family: $family;
+    size: $size !important;
+    weight: $weight !important;
+    style: $style;
+    stretch: $stretch;
+  }
+}
+
+// Title Text
+@mixin title-text($size, $line-height) {
+  @include font(('Lato', sans-serif), $size, 900, normal, normal);
+  line-height: $line-height;
+  letter-spacing: 0.6px;
+  margin {
+    bottom: 0;
+  }
+}
+
+// Alert top (Before - After)
+@mixin before-after($color, $top) {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  border-style: solid;
+  border-width: 0 0.625rem 0.625rem 0.625rem;
+  border-color: transparent transparent $color transparent;
+  margin-left: -0.625rem;
+  top: $top;
+}
+
+// Background Image
+@mixin background-image($star-color, $end-color) {
+  background-image: -webkit-linear-gradient(
+    101deg,
+    $star-color 14%,
+    $end-color
+  );
+  background-image: -moz-linear-gradient(101deg, $star-color 14%, $end-color);
+  background-image: -ms-linear-gradient(101deg, $star-color 14%, $end-color);
+  background-image: -o-linear-gradient(101deg, $star-color 14%, $end-color);
+  background-image: linear-gradient(101deg, $star-color 14%, $end-color);
+}
+
+// Traslated3d
+@mixin translate3d($width) {
+  -webkit-transform: translate3d(0, $width, 0);
+  -moz-transform: translate3d(0, $width, 0);
+  -ms-transform: translate3d(0, $width, 0);
+  -o-transform: translate3d(0, $width, 0);
+  transform: translate3d(0, $width, 0);
+}
+
+// Border-radius
+@mixin border-radius($width) {
+  -webkit-border-radius: $width;
+  -moz-border-radius: $width;
+  -ms-border-radius: $width;
+  -o-border-radius: $width;
+  border-radius: $width;
+}
+
+// Rotate
+@mixin rotate($angle) {
+  -webkit-transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -ms-transform: rotate($angle);
+  -o-transform: rotate($angle);
+  transform: rotate($angle);
+}

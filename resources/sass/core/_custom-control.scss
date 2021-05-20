@@ -1,0 +1,38 @@
+.select2 {
+  width: 100% !important;
+  text-align: left;
+}
+
+.select2-container .select2-selection--single {
+  height: 2.1875rem !important;
+  line-height: 1.5;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 0.3rem !important;
+}
+
+.custom-control {
+  padding-left: 1rem;
+}
+
+.custom-checkbox{
+  .custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+    text-align: justify;
+
+    &::before {
+      @include custom-control-before-after();
+      pointer-events: none;
+      background-color: $white;
+      border-radius: 0.125rem;
+    }
+
+    &::after {
+      @include custom-control-before-after();
+      background: no-repeat 50% / 50% 50%;
+    }
+  }
+}

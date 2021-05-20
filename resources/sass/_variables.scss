@@ -1,0 +1,147 @@
+// Bootstrap overrides
+
+// Font-Awesome
+$fa-font-path:                    "../webfonts";
+
+// Color system
+$white:                           #fff !default;
+$gray-100:                        #f8f9fa;
+$gray-200:                        #c8ced2;
+$gray-300:                        #818a91;
+$gray-400:                        #869fac;
+$gray-500:                        #678898;
+$gray-600:                        #9fa1a3;
+$gray-700:                        #3e515b;
+$gray-800:                        #2a2c36;
+$gray-900:                        #151b1e;
+$black:                           #000 !default;
+$blue:                            #164a98 !default;
+$indigo:                          #6610f2 !default;
+$purple:                          #6f42c1 !default;
+$pink:                            #e83e8c !default;
+$red:                             #f40028 !default;
+$orange:                          #fd7e14 !default;
+$yellow:                          #ffc107 !default;
+$green:                           #4dbd74;
+$teal:                            #20c997 !default;
+$cyan:                            #63c2de;
+
+$colors: (
+  "blue":                           $blue,
+  "indigo":                         $indigo,
+  "purple":                         $purple,
+  "pink":                           $pink,
+  "red":                            $red,
+  "orange":                         $orange,
+  "yellow":                         $yellow,
+  "green":                          $green,
+  "teal":                           $teal,
+  "cyan":                           $cyan,
+  "white":                          $white,
+  "gray":                           $gray-600,
+  "gray-dark":                      $gray-800
+);
+
+$theme-colors: (
+  "primary":                        $blue,
+  "secondary":                      $gray-300,
+  "success":                        $green,
+  "info":                           $cyan,
+  "warning":                        $orange,
+  "danger":                         $red,
+  "light":                          $gray-100,
+  "dark":                           $gray-800,
+  "blue":                           $blue,
+  "indigo":                         $indigo,
+  "purple":                         $purple,
+  "pink":                           $pink,
+  "red":                            $red,
+  "orange":                         $orange,
+  "yellow":                         $yellow,
+  "green":                          $green,
+  "teal":                           $teal,
+  "cyan":                           $cyan,
+  "gray-100":                       $gray-100,
+  "gray-200":                       $gray-200,
+  "gray-300":                       $gray-300,
+  "gray-400":                       $gray-400,
+  "gray-500":                       $gray-500,
+  "gray-600":                       $gray-600,
+  "gray-700":                       $gray-700,
+  "gray-800":                       $gray-800,
+  "gray-900":                       $gray-900
+);
+
+// Options, Quickly modify global styling
+// by enabling or disabling optional features.
+$enable-transitions:              true;
+$enable-rounded:                  false;
+
+// Body, Settings for the `<body>` element.
+$body-bg:                         #e4e5e6;
+$table-mr:                        #f5f8f9;
+
+// Typography,Font, line-height,
+// and color for body text, headings, and more.
+$font-size-base:                  0.875rem;
+
+// Breadcrumbs
+$breadcrumb-bg:                   #fff;
+$breadcrumb-margin-bottom:        1.5rem;
+
+// Cards
+$card-border-color:               $gray-200 !default;
+$card-cap-bg:                     $gray-100;
+
+// Dropdowns
+$dropdown-padding-y:              0;
+$dropdown-border-color:           $gray-200;
+$dropdown-divider-bg:             $gray-100;
+
+// Buttons
+$border-radius:                   .25rem !default;
+$btn-secondary-border:            $gray-300;
+
+// Progress bars
+$progress-bg:                     $gray-100;
+
+// Tables
+$table-bg-accent:                 $gray-100;
+$table-bg-hover:                  $gray-100;
+$table-accent-bg-mr:              $table-mr !default;
+
+// Forms
+$input-group-addon-bg:            $gray-100;
+$input-border-color:              $gray-200;
+$input-group-addon-border-color:  $gray-200;
+
+// Custom Colors
+$darkblue:                        #164a98 !default;
+$lightblue:                       #0c6bb6 !default;
+$lineblue:                        #488abf !default;
+$linegray:                        #b7b7b7 !default;
+$graytitle:                       #585959 !default;
+$graycontent:                     #909090 !default;
+
+$grid-columns:      12;
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 576px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);

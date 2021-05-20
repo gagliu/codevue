@@ -1,0 +1,43 @@
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font: {
+    family: 'Lato';
+    size: 0.875rem;
+    weight: 300;
+    style: normal;
+    stretch: normal;
+  }
+}
+
+.font-xs {
+  font-size: .75rem !important;
+}
+
+.font-sm {
+  font-size: .85rem !important;
+}
+
+.font-lg {
+  font-size: 1rem !important;
+}
+
+.font-xl {
+  font-size: 1.25rem !important;
+}
+
+.font-2xl {
+  font-size: 1.5rem !important;
+}
+
+.font-3xl {
+  font-size: 1.75rem !important;
+}
+
+.font-4xl {
+  font-size: 2rem !important;
+}
+
+.font-5xl {
+  font-size: 2.5rem !important;
+}

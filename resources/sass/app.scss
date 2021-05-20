@@ -1,0 +1,32 @@
+// Variables
+@import 'variables';
+
+// Mixins
+@import 'mixins';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// FontAwesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// Coreui-icons
+@import "~@coreui/icons/scss/coreui-icons";
+
+// Import core styles
+@import "core/core";
+
+// Import UI Kits
+@import "uikits/uikits";
+
+// Import Select2
+@import "~select2/src/scss/core";
+
+// Import vue-directive-tooltip
+@import "~vue-directive-tooltip/src/css/index";
+
+// Custom styles
+@import "custom";

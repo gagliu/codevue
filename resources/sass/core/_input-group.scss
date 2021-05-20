@@ -1,0 +1,24 @@
+.input-group-addon,
+.input-group-btn {
+  min-width: 40px;
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+}
+
+.input-group {
+	margin-bottom: 0.5rem !important;
+
+	.input-group-prepend,
+	.input-group-text {
+		@extend .rounded-left;
+	}
+
+	.form-control,
+	.custom-select {
+	    @extend .rounded-right;
+	}
+
+	.custom-select {
+	  padding: .375rem .75rem !important;
+	}
+}
