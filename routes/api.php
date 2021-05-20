@@ -18,10 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace' => 'api\v1', 'prefix' => 'v1'], function () {
-
-        /**
-        * Users routes
-        */
         Route::get('/people', 'UserController@index');
         Route::post('/people', 'UserController@store');
 });

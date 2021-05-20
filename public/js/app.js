@@ -1954,7 +1954,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'loader',
   data: function data() {
@@ -2031,7 +2030,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'modal'
 });
@@ -2049,7 +2047,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ModalComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../ModalComponent.vue */ "./resources/js/components/ModalComponent.vue");
 /* harmony import */ var _LoaderComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoaderComponent.vue */ "./resources/js/components/LoaderComponent.vue");
-//
 //
 //
 //
@@ -38789,7 +38786,7 @@ var render = function() {
                     },
                     [
                       _c("i", { staticClass: "fas fa-user-plus" }),
-                      _vm._v(" Create user\n            ")
+                      _vm._v(" Create user\n                        ")
                     ]
                   )
                 ])
@@ -38856,7 +38853,7 @@ var render = function() {
                 },
                 [
                   _c("i", { staticClass: "fas fa-user-circle text-primary" }),
-                  _vm._v(" Create user\n    ")
+                  _vm._v(" Create user\n        ")
                 ]
               ),
               _vm._v(" "),
@@ -39023,9 +39020,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n          " +
+                                "\n                    " +
                                   _vm._s(_vm.mesaggeError) +
-                                  "\n        "
+                                  "\n                "
                               )
                             ]
                           )
@@ -39040,7 +39037,7 @@ var render = function() {
                           },
                           [
                             _c("i", { staticClass: "fas fa-save" }),
-                            _vm._v(" Create user\n          ")
+                            _vm._v(" Create user\n                    ")
                           ]
                         )
                       ])
